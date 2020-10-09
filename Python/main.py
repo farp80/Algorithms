@@ -38,8 +38,8 @@ if __name__ == '__main__':
     # index = searching_algorithms.get_searching_algorithms('linear_search')
 
     sorted_array = [2, 4, 6, 8, 10, 12, 14, 16, 20]
-    searching_algorithms = SearchingAlgorithms(sorted_array, 76)
-    index = searching_algorithms.get_searching_algorithms('binary_search_recursive')
+    searching_algorithms = SearchingAlgorithms(sorted_array, 10)
+    index = searching_algorithms.get_searching_algorithms('ternary_search')
     print(index)
     #sorted_array = sort_array('counting_sort')
     #print(sorted_array)

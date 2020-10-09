@@ -13,6 +13,8 @@ class SearchingAlgorithms:
 			left = 0
 			#return self._binary_search_recursive(right, left)
 			return self._binary_search(right, left)
+		elif algorithm == 'ternary_search':
+			return self._ternary_search(len(self.array) - 1, 0)
 
 	def _linear_search(self) -> object:
 		for item in range(len(self.array)):
@@ -56,4 +58,26 @@ class SearchingAlgorithms:
 			else:
 				left = middle + 1
 		return self.__UNDEFINED
+
+	def _ternary_search(self, right, left):
+		partition_size = (right - left)//3
+		mid_1 = left + partition_size
+		mid_2 = right - partition_size
+
+		if left > right:
+			return self.__UNDEFINED
+
+		if self.array[mid_1] == self.searching_query:
+			return mid_1
+
+		if self.array[mid_2] == self.searching_query:
+			return mid_2
+
+		if self.searching_query < self.array[mid_1]:
+			return self._ternary_search(mid_1 - 1, left)
+
+		if self.searching_query > self.array[mid_2]:
+			return self._ternary_search(right, mid_2 + 1)
+
+		return self._ternary_search(mid_2 - 1, mid_1 + 1)
 
