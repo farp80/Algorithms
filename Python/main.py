@@ -4,6 +4,7 @@ from sort_algorithms.insertion_sort import insertion_sort
 from sort_algorithms.merge_sort import merge_sort
 from sort_algorithms.quick_sort import quick_sort
 from sort_algorithms.couting_sort import counting_sort
+from searching_algorithms.linear_search import SearchingAlgorithms
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
@@ -32,7 +33,15 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    sorted_array = sort_array('counting_sort')
-    print(sorted_array)
+    # unsorted_array = [ 120, 2, 0, 234, 1 ]
+    # searching_algorithms = SearchingAlgorithms(unsorted_array, 11)
+    # index = searching_algorithms.get_searching_algorithms('linear_search')
+
+    sorted_array = [2, 4, 6, 8, 10, 12, 14, 16, 20]
+    searching_algorithms = SearchingAlgorithms(sorted_array, 76)
+    index = searching_algorithms.get_searching_algorithms('binary_search_recursive')
+    print(index)
+    #sorted_array = sort_array('counting_sort')
+    #print(sorted_array)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
