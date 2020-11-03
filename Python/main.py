@@ -1,13 +1,9 @@
-from sort_algorithms.bubble_sort import bubble_sort
-from sort_algorithms.selection_sort import selection_sort
-from sort_algorithms.insertion_sort import insertion_sort
-from sort_algorithms.merge_sort import merge_sort
-from sort_algorithms.quick_sort import quick_sort
-from sort_algorithms.couting_sort import counting_sort
 from searching_algorithms.search_definitions import SearchingAlgorithms
+from sort_algorithms.sorting_definitions import SortingAlgorithmsDefinition
 
 
 searching_algorithms_compute = [ ]
+sorting_algorithms_compute = [ ]
 
 
 def process_searching_algorithms():
@@ -34,20 +30,32 @@ def process_searching_algorithms():
 			})
 
 
-# def sort_array(name):
-# 	unsorted_array = [ 120, 2, 0, 234, 1 ]
-# 	if name == 'bubble_sort':
-# 		return bubble_sort(unsorted_array)
-# 	elif name == 'selection_sort':
-# 		return selection_sort(unsorted_array)
-# 	elif name == 'insertion_sort':
-# 		return insertion_sort(unsorted_array)
-# 	elif name == 'merge_sort':
-# 		return merge_sort(unsorted_array)
-# 	elif name == 'quick_sort':
-# 		return quick_sort(unsorted_array, 0, 4)
-# 	elif name == 'counting_sort':
-# 		return counting_sort([ 5, 1, 2, 5, 5, 4, 1, 0, 0, 1, 1, 3 ], 5)
+def process_sorting_algorithms():
+	settings = [
+		{"algorithm": "bubble_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		# {"algorithm": "bucket_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		{"algorithm": "counting_sort", "array": [5, 1, 2, 5, 5, 4, 1, 0, 0, 1, 1, 3], "sort_range": 5},
+		{"algorithm": "insertion_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		{"algorithm": "merge_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		{"algorithm": "quick_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		{"algorithm": "selection_sort", "array": [16, 6000, 11000, 856, 70007, 12, 15, 1008, 5, 33, 5, 90, 908, 20000, 60000]},
+		]
+
+	for algorithm in settings:
+		if algorithm["algorithm"] == 'counting_sort':
+			sorting_definition = SortingAlgorithmsDefinition(
+				algorithm[ "algorithm" ],
+				array = algorithm[ "array" ],
+				sort_range = algorithm["sort_range"])
+		else:
+			sorting_definition = SortingAlgorithmsDefinition(algorithm["algorithm"], array=algorithm["array"])
+		result = sorting_definition.get_sorting_algorithm()
+		sorting_algorithms_compute.append({
+			"algorithm": algorithm["algorithm"],
+			"iterations": result["iterations"]
+			})
+
 
 if __name__ == '__main__':
-	process_searching_algorithms()
+	# process_searching_algorithms()
+	process_sorting_algorithms()

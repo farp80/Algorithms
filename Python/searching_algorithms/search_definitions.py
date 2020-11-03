@@ -1,6 +1,3 @@
-import time
-
-
 class SearchingAlgorithms:
 
 	def __init__(self, array = None, searching_query = None):
